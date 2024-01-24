@@ -16,12 +16,11 @@ public class JavaOfertaTrabajos {
     private String java_tags;
 
     @ManyToOne
-    @JoinColumn(name = "id_company")  // Nombre de la columna que actúa como clave foránea en JavaCompania
+    @JoinColumns({
+            @JoinColumn(name = "id_usuarios", referencedColumnName = "id_usuarios"),
+            @JoinColumn(name = "id_compania", referencedColumnName = "id_compania")
+    })
     private JavaCompania javaCompania;
 
-    // Relación de muchos a uno con la tabla JavaCompania a través de id_usuarios
-    @ManyToOne
-    @JoinColumn(name = "id_usuarios")  // Nombre de la columna que actúa como clave foránea en JavaCompania
-    private JavaCompania javaCompaniaPorIdUsuarios;
 
 }
