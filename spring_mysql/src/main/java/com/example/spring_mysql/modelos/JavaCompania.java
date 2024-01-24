@@ -18,6 +18,6 @@ public class JavaCompania {
     //debia aparecer aqui el id_usaurio;
     @OneToOne
     @JoinColumn(name = "id_usuarios")
-    private JavaUsuarios id_usuarios;
+    private JavaUsuarios id_usuarios; //clave foranea
 
 }
