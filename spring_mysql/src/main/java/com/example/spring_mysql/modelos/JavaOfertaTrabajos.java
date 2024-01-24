@@ -1,9 +1,11 @@
 package com.example.spring_mysql.modelos;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "java_ofertas_trabajo")
+@Data
 public class JavaOfertaTrabajos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,12 +15,13 @@ public class JavaOfertaTrabajos {
 
     private String java_tags;
 
-    //relacion de muchos a uno con company y con id_usuario de compañia (la foranea)
     @ManyToOne
-    @JoinColumn(name = "id_usuarios")
-    private JavaCompania id_usuarios;
+    @JoinColumn(name = "id_company")  // Nombre de la columna que actúa como clave foránea en JavaCompania
+    private JavaCompania javaCompania;
 
+    // Relación de muchos a uno con la tabla JavaCompania a través de id_usuarios
     @ManyToOne
-    @JoinColumn(name = "id_compania")
-    private JavaCompania id_compania;
+    @JoinColumn(name = "id_usuarios")  // Nombre de la columna que actúa como clave foránea en JavaCompania
+    private JavaCompania javaCompaniaPorIdUsuarios;
+
 }
